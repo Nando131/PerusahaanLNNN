@@ -1,0 +1,354 @@
+.page {
+  --gray-rgb: 0, 0, 0;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+
+  --button-primary-hover: #383838;
+  --button-secondary-hover: #f2f2f2;
+
+  display: grid;
+  grid-template-rows: 20px 1fr 20px;
+  align-items: center;
+  justify-items: center;
+  min-height: 100svh;
+  padding: 80px;
+  gap: 64px;
+  font-family: var(--font-geist-sans);
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+
+    --button-primary-hover: #ccc;
+    --button-secondary-hover: #1a1a1a;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  grid-row-start: 2;
+}
+
+.main ol {
+  font-family: var(--font-geist-mono);
+  padding-left: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  list-style-position: inside;
+}
+
+.main li:not(:last-of-type) {
+  margin-bottom: 8px;
+}
+
+.main code {
+  font-family: inherit;
+  background: var(--gray-alpha-100);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.ctas {
+  display: flex;
+  gap: 16px;
+}
+
+.ctas a {
+  appearance: none;
+  border-radius: 128px;
+  height: 48px;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+a.primary {
+  background: var(--foreground);
+  color: var(--background);
+  gap: 8px;
+}
+
+a.secondary {
+  border-color: var(--gray-alpha-200);
+  min-width: 158px;
+}
+
+.footer {
+  grid-row-start: 3;
+  display: flex;
+  gap: 24px;
+}
+
+.footer a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer img {
+  flex-shrink: 0;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  a.primary:hover {
+    background: var(--button-primary-hover);
+    border-color: transparent;
+  }
+
+  a.secondary:hover {
+    background: var(--button-secondary-hover);
+    border-color: transparent;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 32px;
+    padding-bottom: 80px;
+  }
+
+  .main {
+    align-items: center;
+  }
+
+  .main ol {
+    text-align: center;
+  }
+
+  .ctas {
+    flex-direction: column;
+  }
+
+  .ctas a {
+    font-size: 14px;
+    height: 40px;
+    padding: 0 16px;
+  }
+
+  a.secondary {
+    min-width: auto;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo {
+    filter: invert();
+  }
+}
+
+/* Animasi Gradien di Hero */
+.hero-background-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, var(--color-primary), var(--color-teal));
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Styling Ant Design components secara global */
+.ant-card {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+/* Efek hover untuk Workflow */
+.workflow-step {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.workflow-step:hover {
+  cursor: pointer;
+  transform: translateY(-10px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Gaya untuk efek neon (revisi) */
+.tech-icon {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+}
+
+.tech-icon:hover {
+  transform: scale(1.1);
+}
+
+.tech-icon span {
+  display: inline-block;
+  will-change: transform, filter;
+  filter: drop-shadow(0 0 0 transparent);
+  transition: filter 0.3s ease-in-out;
+}
+
+.tech-icon:hover span {
+  filter: drop-shadow(0 0 5px var(--color-primary)) drop-shadow(0 0 10px var(--color-primary)) drop-shadow(0 0 15px rgba(247, 183, 34, 0.5));
+}
+
+.tech-icon .tech-name {
+  transition: color 0.3s ease-in-out;
+}
+
+.tech-icon:hover .tech-name {
+  color: var(--color-primary) !important;
+}
+
+/* Gaya navigasi responsif */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+}
+
+/* Gaya untuk FAQ Ant Design */
+.ant-collapse {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.ant-collapse-item {
+  background-color: #2a2a2a !important;
+  border-radius: 8px !important;
+  border: 1px solid #333 !important;
+  margin-bottom: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ant-collapse-item-active {
+  border-color: var(--color-primary) !important;
+}
+
+.ant-collapse-header {
+  padding: 20px 24px !important;
+}
+
+.ant-collapse-header-text {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.ant-collapse-content {
+  background-color: #1f1f1f !important;
+  border: none !important;
+}
+
+.ant-collapse-content-box {
+  padding: 0px 24px 20px !important;
+}
+
+.ant-collapse-expand-icon {
+  color: var(--color-primary) !important;
+  font-size: 1.2rem;
+}
+
+/* Animasi Neon di Kartu FAQ dan Portfolio */
+.faq-item:hover, .portfolio-card:hover {
+  box-shadow: 0 0 10px var(--color-primary);
+  border-color: var(--color-primary) !important;
+}
+
+/* Gaya untuk Animasi Link Footer */
+.footer-link-animated {
+  position: relative;
+  color: #aaa;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.footer-link-animated::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease-in-out;
+}
+
+.footer-link-animated:hover {
+  color: var(--color-primary);
+}
+
+.footer-link-animated:hover::after {
+  width: 100%;
+}
+
+/* Gaya Floating Button Baru */
+.floating-btn-group .ant-float-btn {
+  background-color: rgba(30, 30, 30, 0.8) !important;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #eee !important;
+  transition: all 0.3s ease;
+}
+
+.floating-btn-group .ant-float-btn:hover {
+  background-color: rgba(60, 60, 60, 0.9) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.wa-btn .ant-float-btn-icon {
+  color: var(--color-teal) !important;
+}
+
+.ig-btn .ant-float-btn-icon {
+  color: var(--color-primary) !important;
+}
+
+.backtop-btn {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: #111 !important;
+}
+
+.backtop-btn .ant-float-btn-icon {
+  color: #111 !important;
+}
+
+.backtop-btn:hover {
+  background-color: var(--color-primary) !important;
+  box-shadow: 0 0 10px var(--color-primary);
+}
