@@ -33,7 +33,7 @@ const portfolioData = [
     link: 'https://lionel-game.vercel.app/' 
   },
   { 
-    title: 'Remed Assignment', 
+    title: 'Branding Portofolio', 
     description: 'Aplikasi web untuk mengelola tugas dan pekerjaan dengan efisien.', 
     imageUrl: '/okema.PNG', 
     link: 'https://remed-assignment.vercel.app/' 
