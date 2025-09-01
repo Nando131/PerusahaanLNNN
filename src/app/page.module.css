@@ -352,3 +352,30 @@ a.secondary {
   background-color: var(--color-primary) !important;
   box-shadow: 0 0 10px var(--color-primary);
 }
+
+/* --- Tambahkan kode ini ke page.module.css Anda --- */
+
+.header-link-animated {
+  position: relative;
+  transition: color 0.3s ease;
+  padding-bottom: 5px; /* Memberi ruang di bawah untuk garis */
+}
+
+.header-link-animated::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary); /* Menggunakan warna primary */
+  transition: width 0.3s ease-in-out;
+}
+
+.header-link-animated:hover {
+  color: var(--color-primary) !important;
+}
+
+.header-link-animated:hover::after {
+  width: 100%;
+}

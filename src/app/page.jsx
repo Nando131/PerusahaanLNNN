@@ -190,12 +190,13 @@ const LandingPage = () => {
     >
       {/* HEADER */}
       <header style={{ position: 'fixed', top: isHeaderVisible ? '0' : '-100px', left: 0, width: '100%', padding: '15px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 100, background: colorPalette.headerBg, backdropFilter: 'blur(10px)', transition: 'top 0.4s ease-in-out' }}>
-        <Image src="/logo-ln.png" alt="Logo L&N" width={40} height={40} />
+        <Image src="/LN.png" alt="Logo Login" width={40} height={40} />
         <Space size="large" className={styles['desktop-nav']}>
-          <Link href="#tentang" style={{ color: colorPalette.text }}>Tentang</Link>
-          <Link href="#paket" style={{ color: colorPalette.text }}>Paket</Link>
-          <Link href="#portfolio" style={{ color: colorPalette.text }}>Portofolio</Link>
-          <Link href="#kontak" style={{ color: colorPalette.text }}>Kontak</Link>
+          {/* Tambahkan className di sini */}
+          <Link href="#tentang" style={{ color: colorPalette.text }} className={styles['header-link-animated']}>Tentang</Link>
+          <Link href="#paket" style={{ color: colorPalette.text }} className={styles['header-link-animated']}>Paket</Link>
+          <Link href="#portfolio" style={{ color: colorPalette.text }} className={styles['header-link-animated']}>Portofolio</Link>
+          <Link href="#kontak" style={{ color: colorPalette.text }} className={styles['header-link-animated']}>Kontak</Link>
         </Space>
       </header>
       
@@ -228,18 +229,20 @@ const LandingPage = () => {
       
       {/* TENTANG */}
       <div id="tentang" style={{ padding: '100px 20px', maxWidth: '1200px', margin: '0 auto' }}>
-        <Title level={2} className="about-element" style={{ textAlign: 'center', color: colorPalette.text, marginBottom: '60px', background: `linear-gradient(to right, ${colorPalette.teal}, ${colorPalette.primary})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tentang Saya</Title>
+        <Title level={2} className="about-element" style={{ textAlign: 'center', color: colorPalette.text, marginBottom: '60px', background: `linear-gradient(to right, ${colorPalette.teal}, ${colorPalette.primary})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tentang Kami</Title>
         <Row gutter={[48, 48]} align="middle">
           <Col xs={24} md={12} className="about-element" style={{ textAlign: 'center' }}>
-            <div style={{ position: 'relative', width: '250px', height: '250px', margin: '0 auto', marginBottom: '24px' }}>
-              <Image src="/lionel.jpg" alt="Lionel" layout="fill" objectFit="cover" style={{ borderRadius: '50%', border: `3px solid ${colorPalette.primary}` }} />
+            {/* Ubah width dan height di sini untuk foto Lionel */}
+            <div style={{ position: 'relative', width: '300px', height: '300px', margin: '0 auto', marginBottom: '24px' }}>
+              <Image src="/Lionel.png" alt="Lionel" layout="fill" objectFit="cover" style={{ borderRadius: '50%', border: `3px solid ${colorPalette.primary}` }} />
             </div>
             <Title level={4} style={{ color: colorPalette.primary, margin: 0 }}>Lionel</Title>
             <Paragraph style={{ color: colorPalette.text, fontSize: '1.1rem' }}>Saya adalah pengembang web yang fokus pada **pengalaman pengguna** yang intuitif dan **desain yang menarik**. Mengubah ide menjadi kode yang bersih dan fungsional adalah gairah saya.</Paragraph>
           </Col>
           <Col xs={24} md={12} className="about-element" style={{ textAlign: 'center' }}>
-            <div style={{ position: 'relative', width: '250px', height: '250px', margin: '0 auto', marginBottom: '24px' }}>
-              <Image src="/hernando.jpg" alt="Hernando" layout="fill" objectFit="cover" style={{ borderRadius: '50%', border: `3px solid ${colorPalette.teal}` }} />
+            {/* Ubah width dan height di sini untuk foto Hernando */}
+            <div style={{ position: 'relative', width: '300px', height: '300px', margin: '0 auto', marginBottom: '24px' }}>
+              <Image src="/Hernando.png.png" alt="Hernando" layout="fill" objectFit="cover" style={{ borderRadius: '50%', border: `3px solid ${colorPalette.teal}` }} />
             </div>
             <Title level={4} style={{ color: colorPalette.teal, margin: 0 }}>Hernando</Title>
             <Paragraph style={{ color: colorPalette.text, fontSize: '1.1rem' }}>Saya adalah ahli dalam **optimasi performa** dan **arsitektur sistem yang skalabel**. Mengembangkan backend yang kokoh dan efisien adalah keahlian utama saya.</Paragraph>
@@ -302,13 +305,13 @@ const LandingPage = () => {
 
       {/* WORKFLOW */}
       <div id="workflow" style={{ padding: '100px 20px', maxWidth: '1200px', margin: '0 auto' }}>
-        <Title level={2} style={{ textAlign: 'center', color: colorPalette.text, marginBottom: '80px' }}>Proses Kerja Saya</Title>
+        <Title level={2} style={{ textAlign: 'center', color: colorPalette.text, marginBottom: '80px' }}>Proses Kerja Kami</Title>
         <Row gutter={[32, 32]} justify="center">{[{icon: <MessageOutlined />, title: "1. Diskusi & Konsep"},{icon: <BgColorsOutlined />, title: "2. Desain & Prototipe"},{icon: <CodeSandboxOutlined />, title: "3. Pengembangan"},{icon: <RocketOutlined />, title: "4. Peluncuran & Dukungan"}].map(step => (<Col xs={12} md={6} key={step.title} className={styles['workflow-step']} style={{ textAlign: 'center' }}><Avatar size={80} icon={step.icon} style={{ background: colorPalette.cardBg, color: colorPalette.teal, border: `2px solid ${colorPalette.teal}`, marginBottom: '16px' }} /><Title level={5} style={{ color: colorPalette.text }}>{step.title}</Title></Col>))}</Row>
       </div>
 
       {/* TECH STACK */}
       <div id="tech-stack" style={{ padding: '100px 20px', maxWidth: '900px', margin: '0 auto' }}>
-          <Title level={2} style={{ textAlign: 'center', color: colorPalette.text, marginBottom: '60px' }}>Teknologi Andalan Saya</Title>
+          <Title level={2} style={{ textAlign: 'center', color: colorPalette.text, marginBottom: '60px' }}>Teknologi Andalan Kami</Title>
           <Row gutter={[16, 48]} justify="center" align="middle">{[ {icon: <FaReact size="3em"/>, name: "React"}, {icon: <TbBrandNextjs size="3em"/>, name: "Next.js"}, {icon: <FaNodeJs size="3em"/>, name: "Node.js"}, {icon: <TbBrandVercel size="3em"/>, name: "Vercel"}, {icon: <FaFigma size="3em"/>, name: "Figma"} ].map(tech => (<Col xs={8} sm={6} md={4} key={tech.name} className={styles['tech-icon']} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}><span style={{ color: colorPalette.teal }}>{tech.icon}</span><span className={styles['tech-name']} style={{ color: colorPalette.text }}>{tech.name}</span></Col>))}</Row>
       </div>
 
@@ -395,4 +398,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default LandingPage; 
